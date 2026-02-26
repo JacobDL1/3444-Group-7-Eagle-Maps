@@ -9,9 +9,26 @@
 
     <h1>Selected Map</h1>
 
-    <h2>Where I Am</h2>
+    <label for="nearestWing">Where I am:</label>
 
-    <h2>Where I Wanna Go</h2>
+    <select id="nearestWing" name="nearestWing" required>
+        <option value="A_wing">A Wing</option>
+        <option value="B_wing_firstFloor">B Wing - First Floor</option>
+        <option value="D_wing_firstFloor">D Wing - First Floor</option>
+        <option value="E_wing_firstFloor">E Wing - First Floor</option>
+        <option value="F_wing_firstFloor">F Wing - First Floor</option>
+        <option value="G_wing">G Wing</option>
+        <option value="K_wing_firstFloor">K Wing - First Floor</option>
+        <option value="M_wing">M Wing</option>
+        <option value="B_wing_secondFloor">B Wing - Second Floor</option>
+        <option value="D_wing_secondFloor">D Wing - Second Floor</option>
+        <option value="E_wing_secondFloor">E Wing - Second Floor</option>
+        <option value="F_wing_secondFloor">F Wing - Second Floor</option>
+        <option value="K_wing_secondFloor">K Wing - Second Floor</option>
+    </select>
+
+    <label for="roomNumber">Where I Wanna Go:</label>
+    <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][0-9]{3}"placeholder="Example: F245" required>
 
 </body>
 
