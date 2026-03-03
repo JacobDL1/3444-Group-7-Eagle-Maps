@@ -15,18 +15,6 @@
         <p>Mainly for Engineering, Computer Science, and Information Technology classes</p>
         <img src="FirstFloorDP.png" alt="Snapshot of first floor of Discovery Park">
     </div>
-    <!-- Script for dynamically responding to user-selected map -->
-    <script>
-        const url = new URLSearchParams(window.location.search);
-        const building = url.get('building');
-
-        if (!building)
-        {
-            window.location.href = 'mapSelection.html';
-        }
-
-        document.getElementById('building-title').textContent = building;
-    </script>
 </body>
 
 </html>
