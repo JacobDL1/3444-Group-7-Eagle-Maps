@@ -6,10 +6,6 @@
 </head>
 
 <body>
-    <div id="discoveryPark_map" style="display:none">
-        <img src = "FirstFloorDP.png" alt = "Discovery Park First Floor">
-        <img src = "SecondFloorDP.png" alt = "Discovery Park Second Floor">
-    </div>
     <h1 id="building">Selected Map</h1>
 
     <label for="nearestWing">Where I am:</label>
@@ -33,6 +29,10 @@
     <label for="roomNumber">Where I Wanna Go:</label>
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][0-9]{3}"placeholder="Example: F245" required>
 
+    <div id="discoveryPark_map" style="display:none">
+        <img src="FirstFloorDP.png" alt="Discovery Park First Floor" style="85%;">
+        <img src="SecondFloorDP.png" alt="Discovery Park Second Floor" style="85%;">
+    </div>
     <!-- Script for dynamically responding to user-selected map -->
     <script>
         const url = new URLSearchParams(window.location.search);
