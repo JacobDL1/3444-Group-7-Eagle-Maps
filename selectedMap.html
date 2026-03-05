@@ -28,10 +28,17 @@
 
     <label for="roomNumber">Where I Wanna Go:</label>
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][0-9]{3}"placeholder="Example: F245" required>
-
+    
     <div id="discoveryPark_map" style="display:none">
-        <img src="FirstFloorDP.png" alt="Discovery Park First Floor" style="75%;">
-        <img src="SecondFloorDP.png" alt="Discovery Park Second Floor" style="75%;">
+        <!-- Relative for grouped div and absolute on the canvas stacks them, allowing the arrow to be drawn over the map -->
+        <div style="position:relative; display:inline-block">
+            <img id="discoveryPark_floor1_img" src="FirstFloorDP.png" alt="Discovery Park First Floor" style="width:75%;">
+            <canvas id="discoveryPark_floor1_canvas" style="position:absolute; top:0; left:0;"></canvas>
+        </div>
+        <div style="position:relative; display:inline-block">
+            <img id="discoveryPark_floor2_img" src="SecondFloorDP.png" alt="Discovery Park Second Floor" style="width:75%;">
+            <canvas id="discoveryPark_floor2_canvas" style="position:absolute; top:0; left:0;"></canvas>
+        </div>
     </div>
     <!-- Script for dynamically responding to user-selected map -->
     <script>
@@ -49,6 +56,50 @@
         if (map)
         {
             map.style.display = 'block';
+
+            const firstFloorImg = document.getElementById(building + '_floor1_img');
+            const firstFloorCanvas = document.getElementById(building + '_floor1_canvas');
+
+            firstFloorImg.onload = function ()
+            {
+                firstFloorCanvas.width = firstFloorImg.offsetWidth;
+                firstFloorCanvas.height = firstFloorImg.offsetHeight;
+
+                const arrow = firstFloorCanvas.getContext('2d');
+                arrow.strokeStyle = 'red';
+                arrow.lineWidth = 5;
+                arrow.beginPath();
+                arrow.moveTo(0, 0);
+                arrow.lineTo(200, 200);
+                arrow.stroke();
+            };
+
+            if (firstFloorImg.complete)
+            {
+                firstFloorImg.onload();
+            }
+
+            const secondFloorImg = document.getElementById(building + '_floor2_img');
+            const secondFloorCanvas = document.getElementById(building + '_floor2_canvas');
+
+            secondFloorImg.onload = function ()
+            {
+                secondFloorCanvas.width = secondFloorImg.offsetWidth;
+                secondFloorCanvas.height = secondFloorImg.offsetHeight;
+
+                const arrow = secondFloorCanvas.getContext('2d');
+                arrow.strokeStyle = 'red';
+                arrow.lineWidth = 5;
+                arrow.beginPath();
+                arrow.moveTo(0, 0);
+                arrow.lineTo(200, 200);
+                arrow.stroke();
+            };
+
+            if (secondFloorImg.complete)
+            {
+                secondFloorImg.onload();
+            }
         }
     </script>
 </body>
