@@ -21,5 +21,19 @@
 <p>Already have an account?</p>
 <a href="login.html">Go to Login</a>
 
+<script>
+
+document.querySelector("form").addEventListener("submit", function(e){
+  let email = document.getElementById("email").value;
+  let password = doument.getElementById("password").value;
+
+  if(email === "" || password === ""){
+    alert("Please fill in all fields");
+    e.preventDefault();
+  }
+});
+  
+</script>
+
 </body>
 </html>
