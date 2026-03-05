@@ -22,6 +22,20 @@
 
 <p>Don't have an account?</p>
 <a href="sign-up.html">Go to Sign Up</a>
+
+<script>
+
+document.querySelector("form").addEventListener("submit", function(e){
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  if(email === "" || password === ""){
+    alert("Please fill in all fields");
+    e.preventDefault();
+  }
+});
+  
+</script>
   
 </body>
 </html>
