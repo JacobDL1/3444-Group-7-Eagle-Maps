@@ -26,3 +26,30 @@ function walkable(r, g, b) //an area is walkable if its a hallway
 {
   return hallway(r, g, b)
 }
+
+function logicalGrid(canvas, img) //returns a grid that contains True/False entries reflecting the walkablility of each pixel
+{
+  const dim = canvas.getContext('2d');
+  dim.drawImage(img, 0, 0, canvas.width, canvas.height); //draws map image on top of the canvas so the arrow can be drawn on the map
+
+  const mapData = dim.getImageData(0, 0, canvas.width, canvas.height);
+  const pixels = mapData.data; //stores image data as an array where each entry is a (r, g, b, a) value
+
+  const grid = []; //stores whether a pixel is walkable or not
+
+  for (let i = 0; i < canvas.height; y++)
+    {
+      grid[i] = []; //initialize grid spot
+      
+      for (let j = 0; j < canvas.width; j++)
+      {
+        const index = (i * canvas.width + j) * 4; //i * canvas.width gives what row, adding j gives the column, multiply times 4 since each individual pixel takes up 4 entries in the pixels array
+        const r = pixels[index]; //pixels[0] has the pixels r value, subsequent +1 and +2 values are green and blue respectively
+        const g = pixels[index + 1];
+        const b = pixels[index + 2];
+
+        grid[i][j] = walkable(r, g, b); //stores either True or False to indcate whether an area is walkable
+      }
+    }
+  return grid;
+}
