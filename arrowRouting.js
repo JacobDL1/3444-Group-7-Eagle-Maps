@@ -2,6 +2,38 @@
 Logic for arrow routing, uses map colors to discern what that color indicates the region is for
 */
 
+const coordinates =
+{
+  'discoveryPark':
+  {
+    wings:
+    {
+      'A_wing': { x: 732, y: 1244, floor: 1},
+      'B_wing_firstFloor': { x: 902, y: 934, floor: 1},
+      'D_wing_firstFloor': { x: 796, y: 805, floor: 1},
+      'E_wing_firstFloor': { x: 376, y: 816, floor: 1},
+      'F_wing_firstFloor': { x: 1052, y: 1177, floor: 1},
+      'G_wing': { x: 512, y: 816, floor: 1},
+      'K_wing_firstFloor': { x: 120, y: 815, floor: 1},
+      'M_wing': { x: 1154, y: 1163, floor: 1},
+      'J_wing': { x: 796, y: 805, floor: 1},
+      'B_wing_secondFloor': { x: 1006, y: 428, floor: 2},
+      'D_wing_secondFloor': { x: 905, y: 245, floor: 2},
+      'E_wing_secondFloor': { x: 471, y: 248, floor: 2},
+      'F_wing_secondFloor': { x: 1172, y: 624, floor: 2},
+      'K_wing_secondFloor': { x: 241, y: 245, floor: 2}
+    },
+    stairs:
+    [
+      { floor1 : {x: 926, y: 826}, floor2: {x: 1031, y: 270} },
+      { floor1 : {x: 622, y: 797}, floor2: {x: 706, y: 225} },
+      { floor1 : {x: 153, y: 811}, floor2: {x: 230, y: 230} },
+      { floor1 : {x: 828, y: 1161}, floor2: {x: 884, y: 601} },
+      { floor1 : {x: 1264, y: 1164}, floor2: {x: 1382, y: 606} },
+    ]
+  }
+};
+
 function hallway(r, g, b) //hallways are grey, should have 211 values accross the board
 {
   return Math.abs(r - 211) < 5 && Math.abs(g - 211) < 5 && Math.abs(b - 211) < 5;
