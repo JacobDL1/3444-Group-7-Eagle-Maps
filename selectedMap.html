@@ -28,6 +28,8 @@
 
     <label for="roomNumber">Where I Wanna Go:</label>
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][0-9]{3}"placeholder="Example: F245" required>
+
+    <button id="route">Find Route</button>
     
     <div id="discoveryPark_map" style="display:none">
         <!-- Relative for grouped div and absolute on the canvas stacks them, allowing the arrow to be drawn over the map -->
@@ -56,6 +58,8 @@
         if (map)
         {
             map.style.display = 'block';
+
+            
 
             const firstFloorImg = document.getElementById(building + '_floor1_img');
             const firstFloorCanvas = document.getElementById(building + '_floor1_canvas');
