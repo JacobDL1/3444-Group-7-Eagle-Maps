@@ -1,3 +1,7 @@
+/*
+Logic for arrow routing, uses map colors to discern what that color indicates the region is for
+*/
+
 function hallway(r, g, b) //hallways are grey, should have 211 values accross the board
 {
   return Math.abs(r - 211) < 5 && Math.abs(g - 211) < 5 && Math.abs(b - 211) < 5;
