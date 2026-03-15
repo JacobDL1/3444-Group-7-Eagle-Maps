@@ -59,10 +59,27 @@
         {
             map.style.display = 'block';
 
-            
-
             const firstFloorImg = document.getElementById(building + '_floor1_img');
             const firstFloorCanvas = document.getElementById(building + '_floor1_canvas');
+            const secondFloorImg = document.getElementById(building + '_floor2_img');
+            const secondFloorCanvas = document.getElementById(building + '_floor2_canvas');
+
+            // Temporary coordinate finder - remove after getting all coordinates
+            firstFloorCanvas.addEventListener('click', function(e)
+            {
+                const rect = firstFloorCanvas.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                console.log(`Floor 1 - x:${x} y:${y}`);
+            });
+            
+            secondFloorCanvas.addEventListener('click', function(e)
+            {
+                const rect = secondFloorCanvas.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                console.log(`Floor 2 - x:${x} y:${y}`);
+            });
 
             firstFloorImg.onload = function ()
             {
@@ -82,9 +99,6 @@
             {
                 firstFloorImg.onload();
             }
-
-            const secondFloorImg = document.getElementById(building + '_floor2_img');
-            const secondFloorCanvas = document.getElementById(building + '_floor2_canvas');
 
             secondFloorImg.onload = function ()
             {
