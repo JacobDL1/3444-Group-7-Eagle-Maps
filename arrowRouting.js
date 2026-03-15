@@ -141,3 +141,20 @@ function path(grid, x1, y1, x2, y2) //finds path from start postion (x1, y1) to 
   }
   return null;
 }
+
+
+function drawPath(canvas, path) //draws path on the canvas
+{
+  const arrow = canvas.getContext('2d'); //allows program to draw on the canvas
+
+  arrow.strokeStyle = 'green';
+  arrow.lineWidth = 2;
+  arrow.beginPath();
+  arrow.moveTo(path[0].x, path[0].y); //moves to starting position
+
+  for (let i = 1; i < path.length; i++) //goes through path and connects all of its dots to create the arrow
+  {
+    arrow.lineTo(path[i].x, path[i].y);
+  }
+  arrow.stroke(); //draws the arrow based on the lineTo commands from the for loop
+}
