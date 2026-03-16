@@ -8,32 +8,98 @@ const coordinates =
   {
     wings:
     {
-      'A_wing': { x: 732, y: 1244, floor: 1},
-      'B_wing_firstFloor': { x: 902, y: 934, floor: 1},
-      'D_wing_firstFloor': { x: 796, y: 805, floor: 1},
-      'E_wing_firstFloor': { x: 376, y: 816, floor: 1},
-      'F_wing_firstFloor': { x: 1052, y: 1177, floor: 1},
-      'G_wing': { x: 512, y: 816, floor: 1},
-      'K_wing_firstFloor': { x: 120, y: 815, floor: 1},
-      'M_wing': { x: 1154, y: 1163, floor: 1},
-      'J_wing': { x: 796, y: 805, floor: 1},
-      'B_wing_secondFloor': { x: 1006, y: 428, floor: 2},
-      'D_wing_secondFloor': { x: 905, y: 245, floor: 2},
-      'E_wing_secondFloor': { x: 471, y: 248, floor: 2},
-      'F_wing_secondFloor': { x: 1172, y: 624, floor: 2},
-      'K_wing_secondFloor': { x: 241, y: 245, floor: 2}
+      'A_WING': { x: 977, y: 1657, floor: 1 },
+      'B_WING_FIRSTFLOOR': { x: 1203, y: 1238, floor: 1 },
+      'D_WING_FIRSTFLOOR': { x: 1040, y: 1076, floor: 1 },
+      'E_WING_FIRSTFLOOR': { x: 450, y: 1092, floor: 1 },
+      'F_WING_FIRSTFLOOR': { x: 1413, y: 1570, floor: 1 },
+      'M_WING': { x: 1491, y: 1542, floor: 1 },
+      'J_WING': { x: 1122, y: 905, floor: 1 },
+      'B_WING_SECONDFLOOR': { x: 1564, y: 669, floor: 1 },
+      'D_WING_SECONDFLOOR': { x: 1550, y: 371, floor: 1 },
+      'E_WING_SECONDFLOOR': { x: 778, y: 386, floor: 1 },
+      'F_WING_SECONDFLOOR': { x: 1845, y: 977, floor: 1 },
+      'K_WING_SECONDFLOOR': { x: 399, y: 376, floor: 1 }
     },
     stairs:
     [
-      { floor1 : {x: 926, y: 826}, floor2: {x: 1031, y: 270} },
-      { floor1 : {x: 622, y: 797}, floor2: {x: 706, y: 225} },
-      { floor1 : {x: 153, y: 811}, floor2: {x: 230, y: 230} },
-      { floor1 : {x: 828, y: 1161}, floor2: {x: 884, y: 601} },
-      { floor1 : {x: 1264, y: 1164}, floor2: {x: 1382, y: 606} },
+      { floor1 : {x: 1237, y: 1096}, floor2: {x: 1602, y: 419} },
+      { floor1 : {x: 834, y: 1063}, floor2: {x: 1100, y: 353} },
+      { floor1 : {x: 209, y: 1085}, floor2: {x: 359, y: 364} },
+      { floor1 : {x: 1111, y: 1549}, floor2: {x: 1372, y: 940} },
+      { floor1 : { x: 1692, y: 1553}, floor2: {x: 2145, y: 943} },
     ]
   }
 };
+const roomCoordinates =
+{
+    'discoveryPark':
+    {
+      A_wing_roomCoords:
+      {
+        'A101': { x: 974, y: 1788, floor: 1 },
+        'A130': { x: 951, y: 1808, floor: 1 },
+        'A131': { x: 950, y: 1808, floor: 1 },
+        'A140': { x: 953, y: 1754, floor: 1 },
+        'A160A': { x: 952, y: 1640, floor: 1 },
+        'A160B': { x: 902, y: 1655, floor: 1 },
+        'A160C': { x: 883, y: 1656, floor: 1 },
+        'A160D': { x: 863, y: 1656, floor: 1 },
+        'A160E': { x: 837, y: 1665, floor: 1 },
+        'A145': { x: 841, y: 1670, floor: 1 },
+        'A160F': { x: 878, y: 1659, floor: 1 },
+        'A160G': { x: 894, y: 1660, floor: 1 },
+        'A143': { x: 861, y: 1745, floor: 1 },
+        'A144': { x: 862, y: 1726, floor: 1 },
+        'A145': { x: 861, y: 1706, floor: 1 },
+        'A146': { x: 861, y: 1706, floor: 1 },
+        'A147': { x: 887, y: 1705, floor: 1 },
+        'A149': { x: 871, y: 1720, floor: 1 },
+        'A151': { x: 923, y: 1723, floor: 1 },
+        'A154': { x: 923, y: 1724, floor: 1 },
+        'A150': { x: 922, y: 1691, floor: 1 },
+        'A153': { x: 923, y: 1693, floor: 1 }
+      }
 
+      B_wing_roomCoords:
+      {
+        'B185': { x: 923, y: 1462, floor: 1 },
+        'B185A': { x: 948, y: 1397, floor: 1 },
+        'B185B': { x: 998, y: 1397, floor: 1 },
+        'B156': { x: 1031, y: 1378, floor: 1 },
+        'B145': { x: 1034, y: 1388, floor: 1 },
+        'B186A': { x: 925, y: 1521, floor: 1 },
+        'B186B': { x: 966, y: 1564, floor: 1 },
+        'B187': { x: 1052, y: 1530, floor: 1 },
+        'B192': { x: 1166, y: 1505, floor: 1 },
+        'B190': { x: 1166, y: 1441, floor: 1 },
+        'B157': { x: 924, y: 1291, floor: 1 },
+        'B158': { x: 924, y: 1360, floor: 1 },
+        'B155': { x: 1007, y: 1246, floor: 1 },
+        'B142': { x: 1067, y: 1248, floor: 1 },
+        'B140': { x: 1123, y: 1249, floor: 1 },
+        'B112': { x: 987, y: 1099, floor: 1 },
+        'B110': { x: 924, y: 1187, floor: 1 },
+        'B111': { x: 925, y: 1220, floor: 1 },
+        'B131': { x: 1165, y: 1216, floor: 1 },
+        'B131A': { x: 1112, y: 1245, floor: 1 },
+        'B131B': { x: 1112, y: 1244, floor: 1 },
+        'B129': { x: 1163, y: 1168, floor: 1 },
+        'B129A': { x: 1108, y: 1095, floor: 1 },
+        'B129B': { x: 1131, y: 1093, floor: 1 },
+        'B129C': { x: 1152, y: 1097, floor: 1 }
+      }
+
+      D_wing_roomCoords:
+      {
+      }
+    }
+};
+
+const roomCoordinates = {
+    'discoveryPark': {
+    }
+};
 
 const naturalWidth = {floor1: 1728, floor2: 2304}; //store width of each Discovery Park image
 
