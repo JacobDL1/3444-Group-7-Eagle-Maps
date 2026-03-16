@@ -34,6 +34,17 @@ const coordinates =
   }
 };
 
+
+const naturalWidth = {floor1: 1728, floor2: 2304}; //store width of each Discovery Park image
+
+
+function scaleImg(x, y, floor, canvas) //upscales or downsacles image to match device's resolution width
+{
+  const scale = canvas.width / naturalWidth['floor' + floor];
+  return { x: Math.round(x * scale), y: Math.round(y * scale) };
+}
+
+
 function hallway(r, g, b) //hallways are grey, should have 211 values accross the board
 {
   return Math.abs(r - 211) < 5 && Math.abs(g - 211) < 5 && Math.abs(b - 211) < 5;
