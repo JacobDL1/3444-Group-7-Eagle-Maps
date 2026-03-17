@@ -15,6 +15,7 @@ const coordinates =
       'F_WING_FIRSTFLOOR': { x: 1413, y: 1570, floor: 1 },
       'G_WING': { x: 694, y: 1089, floor: 1 },
       'K_WING_FIRSTFLOOR': { x: 241, y: 1082, floor: 1 },
+      'H_WING': { x: 903, y: 621, floor: 1 },
       'M_WING': { x: 1491, y: 1542, floor: 1 },
       'J_WING': { x: 1122, y: 905, floor: 1 },
       'B_WING_SECONDFLOOR': { x: 1564, y: 669, floor: 2 },
