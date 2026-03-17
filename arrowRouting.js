@@ -435,6 +435,88 @@ const roomCoordinates =
         'J130': { x: 1189, y: 897, floor: 1 },
         'J105': { x: 1189, y: 897, floor: 1 },
         'J115': { x: 1201, y: 894, floor: 1 }
+      },
+
+      B_wingSecondFloor_roomCoords:
+      {
+        'B205': { x: 1467, y: 401, floor: 2 },
+        'B204': { x: 1408, y: 401, floor: 2 },
+        'B203': { x: 1382, y: 400, floor: 2 },
+        'B201': { x: 1333, y: 400, floor: 2 },
+        'B201C': { x: 1290, y: 402, floor: 2 },
+        'B201E': { x: 1255, y: 401, floor: 2 },
+        'B201D': { x: 1235, y: 439, floor: 2 },
+        'B201A': { x: 1332, y: 400, floor: 2 },
+        'B201B': { x: 1299, y: 400, floor: 2 },
+        'B227': { x: 1229, y: 490, floor: 2 },
+        'B205A': { x: 1452, y: 401, floor: 2 },
+        'B205B': { x: 1477, y: 400, floor: 2 },
+        'B205C': { x: 1499, y: 400, floor: 2 },
+        'B206': { x: 1491, y: 571, floor: 2 },
+        'B207': { x: 1431, y: 569, floor: 2 },
+        'B220': { x: 1328, y: 570, floor: 2 },
+        'B217': { x: 1355, y: 569, floor: 2 },
+        'B280': { x: 1554, y: 610, floor: 2 },
+        'B281': { x: 1556, y: 667, floor: 2 },
+        'B282': { x: 1560, y: 718, floor: 2 },
+        'B270': { x: 1519, y: 760, floor: 2 },
+        'B265': { x: 1500, y: 724, floor: 2 },
+        'B263': { x: 1499, y: 681, floor: 2 },
+        'B262': { x: 1496, y: 641, floor: 2 },
+        'B261': { x: 1500, y: 622, floor: 2 },
+        'B260': { x: 1499, y: 592, floor: 2 },
+        'B208': { x: 1449, y: 577, floor: 2 },
+        'B209': { x: 1423, y: 573, floor: 2 },
+        'B210': { x: 1395, y: 574, floor: 2 },
+        'B216': { x: 1341, y: 576, floor: 2 },
+        'B224': { x: 1304, y: 574, floor: 2 },
+        'B225': { x: 1286, y: 573, floor: 2 },
+        'B230': { x: 1251, y: 574, floor: 2 },
+        'B231': { x: 1228, y: 621, floor: 2 },
+        'B232': { x: 1231, y: 650, floor: 2 },
+        'B233': { x: 1229, y: 678, floor: 2 },
+        'B234': { x: 1230, y: 705, floor: 2 },
+        'B235': { x: 1230, y: 731, floor: 2 },
+        'B252': { x: 1448, y: 750, floor: 2 },
+        'B251': { x: 1421, y: 752, floor: 2 },
+        'B250': { x: 1388, y: 749, floor: 2 },
+        'B245': { x: 1340, y: 750, floor: 2 },
+        'B240': { x: 1280, y: 752, floor: 2 },
+        'B271': { x: 1463, y: 759, floor: 2 },
+        'B273': { x: 1462, y: 758, floor: 2 },
+        'B275': { x: 1462, y: 758, floor: 2 },
+        'B277': { x: 1462, y: 758, floor: 2 },
+        'B279': { x: 1462, y: 758, floor: 2 },
+        'B272': { x: 1462, y: 758, floor: 2 },
+        'B274': { x: 1462, y: 758, floor: 2 },
+        'B276': { x: 1462, y: 758, floor: 2 },
+        'B285': { x: 1382, y: 758, floor: 2 },
+        'B242': { x: 1325, y: 758, floor: 2 },
+        'B236': { x: 1254, y: 757, floor: 2 },
+        'B238': { x: 1224, y: 832, floor: 2 },
+        'B239': { x: 1227, y: 867, floor: 2 },
+        'B286': { x: 1226, y: 908, floor: 2 },
+        'B255': { x: 1224, y: 504, floor: 2 }
+      },
+
+      D_wingSecondFloor_roomCoords:
+      {
+        
+      },
+
+      E_wingSecondFloor_roomCoords:
+      {
+        
+      },
+
+      F_wingSecondFloor_roomCoords:
+      {
+        
+      },
+
+      K_wingSecondFloor_roomCoords:
+      {
+        
       }
     }
 };
