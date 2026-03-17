@@ -55,7 +55,11 @@
             window.location.href = 'mapSelection.html';
         }
 
-        document.getElementById('building').textContent = building;
+        const nicerNames = //stores better looking names for map retreival than how they are otherwise written in the code
+        {
+            'discoveryPark': 'Discovery Park'
+        };
+        document.getElementById('building').textContent = nicerNames[building] || building;
 
         const map = document.getElementById(building + '_map');
         if (map)
