@@ -107,6 +107,28 @@ function scaleImg(x, y, floor, canvas) //upscales or downsacles image to match d
 }
 
 
+function getRoomCoords(building, roomNum) //checks if room exists and returns its coordiantes if it does
+{
+  const wing = roomNum[0].toUpperCase() + '_wing_roomCoords'; //stores name of wing as it will be stored in roomCoordinates
+  const room = roomCoordinates[building]; //stores data of rooms in specified building
+
+  if (!room[wing]) //wing does not exist
+  {
+    return null;
+  }
+
+  if (!room[wing][roomNum.toUpperCase()]) //room does not exist
+  {
+    return null;
+  }
+
+  if (room[wing][roomNum.toUpperCase()]) //room exists
+  {
+    return room[wing][roomNum.toUpperCase()];
+  }
+}
+
+
 function hallway(r, g, b) //hallways are grey, should have 211 values accross the board
 {
   return Math.abs(r - 211) < 5 && Math.abs(g - 211) < 5 && Math.abs(b - 211) < 5;
