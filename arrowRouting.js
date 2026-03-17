@@ -852,7 +852,38 @@ const roomCoordinates =
 
       K_wingSecondFloor_roomCoords:
       {
-        
+        'K200': { x: 360, y: 400, floor: 2 },
+        'K220': { x: 324, y: 399, floor: 2 },
+        'K220A': { x: 273, y: 413, floor: 2 },
+        'K220B': { x: 272, y: 474, floor: 2 },
+        'K240': { x: 180, y: 434, floor: 2 },
+        'K240B': { x: 266, y: 475, floor: 2 },
+        'K240C': { x: 267, y: 476, floor: 2 },
+        'K240D': { x: 266, y: 475, floor: 2 },
+        'K240A': { x: 255, y: 471, floor: 2 },
+        'K240E': { x: 230, y: 473, floor: 2 },
+        'K240C': { x: 250, y: 475, floor: 2 },
+        'K240D': { x: 222, y: 477, floor: 2 },
+        'K240F': { x: 197, y: 474, floor: 2 },
+        'K240I': { x: 187, y: 473, floor: 2 },
+        'K245': { x: 176, y: 392, floor: 2 },
+        'K240K': { x: 176, y: 422, floor: 2 },
+        'K240J': { x: 177, y: 450, floor: 2 },
+        'K240H': { x: 177, y: 478, floor: 2 },
+        'K240G': { x: 176, y: 494, floor: 2 },
+        'K250': { x: 258, y: 352, floor: 2 },
+        'K249': { x: 249, y: 350, floor: 2 },
+        'K280A': { x: 257, y: 333, floor: 2 },
+        'K280B': { x: 256, y: 334, floor: 2 },
+        'K280': { x: 261, y: 302, floor: 2 },
+        'K282': { x: 256, y: 196, floor: 2 },
+        'K275': { x: 254, y: 169, floor: 2 },
+        'K272': { x: 242, y: 195, floor: 2 },
+        'K271': { x: 250, y: 247, floor: 2 },
+        'K253': { x: 248, y: 321, floor: 2 },
+        'K270A': { x: 248, y: 321, floor: 2 },
+        'K270B': { x: 249, y: 321, floor: 2 },
+        'K270': { x: 248, y: 302, floor: 2 }
       }
     }
 };
