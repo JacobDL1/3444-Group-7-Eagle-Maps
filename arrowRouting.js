@@ -501,7 +501,27 @@ const roomCoordinates =
 
       D_wingSecondFloor_roomCoords:
       {
-        
+        'D202': { x: 1275, y: 294, floor: 2 },
+        'D204': { x: 1275, y: 224, floor: 2 },
+        'D205': { x: 1248, y: 184, floor: 2 },
+        'D222': { x: 1246, y: 171, floor: 2 },
+        'D220': { x: 1302, y: 129, floor: 2 },
+        'D220A': { x: 1324, y: 129, floor: 2 },
+        'D206': { x: 1329, y: 154, floor: 2 },
+        'D206B': { x: 1412, y: 186, floor: 2 },
+        'D210A': { x: 1472, y: 180, floor: 2 },
+        'D210B': { x: 1573, y: 183, floor: 2 },
+        'D250': { x: 1614, y: 223, floor: 2 },
+        'D251': { x: 1614, y: 252, floor: 2 },
+        'D212': { x: 1595, y: 289, floor: 2 },
+        'D215': { x: 1500, y: 341, floor: 2 },
+        'D201': { x: 1302, y: 283, floor: 2 },
+        'D209B': { x: 1545, y: 198, floor: 2 },
+        'D209A': { x: 1501, y: 196, floor: 2 },
+        'D208B': { x: 1460, y: 196, floor: 2 },
+        'D208A': { x: 1399, y: 198, floor: 2 },
+        'D207B': { x: 1356, y: 200, floor: 2 },
+        'D207A': { x: 1313, y: 198, floor: 2 }
       },
 
       E_wingSecondFloor_roomCoords:
