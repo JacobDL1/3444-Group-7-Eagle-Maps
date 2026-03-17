@@ -222,6 +222,46 @@ const roomCoordinates =
         'E134': { x: 289, y: 1271, floor: 1 }
       },
 
+      K_wingFirstFloor_roomCoords:
+      {
+        'K100': { x: 268, y: 1102, floor: 1 },
+        'K101': { x: 241, y: 1128, floor: 1 },
+        'K102': { x: 241, y: 1151, floor: 1 },
+        'K103': { x: 224, y: 1162, floor: 1 },
+        'K104': { x: 209, y: 1101, floor: 1 },
+        'K110': { x: 177, y: 1102, floor: 1 },
+        'K120': { x: 107, y: 1099, floor: 1 },
+        'K129': { x: 68, y: 1080, floor: 1 },
+        'K140': { x: 107, y: 1079, floor: 1 },
+        'K130': { x: 143, y: 1084, floor: 1 },
+        'K145': { x: 116, y: 1003, floor: 1 },
+        'K160A': { x: 117, y: 1004, floor: 1 },
+        'K160B': { x: 117, y: 1004, floor: 1 },
+        'K107': { x: 208, y: 1008, floor: 1 },
+        'K150': { x: 133, y: 976, floor: 1 },
+        'K160': { x: 117, y: 983, floor: 1 },
+        'K170': { x: 115, y: 930, floor: 1 },
+        'K160C': { x: 115, y: 930, floor: 1 },
+        'K175': { x: 116, y: 910, floor: 1 },
+        'K180': { x: 267, y: 1052, floor: 1 }
+      },
+
+      M_wingFirstFloor_roomCoords:
+      {
+        'M101': { x: 1241, y: 1419, floor: 1 },
+        'M103': { x: 1333, y: 1536, floor: 1 },
+        'M102': { x: 1333, y: 1537, floor: 1 },
+        'M130': { x: 1417, y: 1536, floor: 1 },
+        'M151': { x: 1523, y: 1536, floor: 1 },
+        'M152': { x: 1477, y: 1536, floor: 1 },
+        'M153': { x: 1476, y: 1535, floor: 1 },
+        'M153A': { x: 1477, y: 1536, floor: 1 },
+        'M154': { x: 1477, y: 1536, floor: 1 },
+        'M155': { x: 1477, y: 1536, floor: 1 },
+        'M156': { x: 1475, y: 1538, floor: 1 },
+        'M170': { x: 1475, y: 1538, floor: 1 }
+      },
+
       F_wingFirstFloor_roomCoords:
       {
         'F101': { x: 1228, y: 1586, floor: 1 },
