@@ -91,6 +91,14 @@
 
             document.getElementById('route').addEventListener('click', function()
             {
+                const clearFirst = firstFloorCanvas.getContext('2d'); //used to clear first floor on each run, makes sure that in the event of second-floor exclusive routing, no first floor remnants are left
+                clearFirst.clearRect(0, 0, firstFloorCanvas.width, firstFloorCanvas.height);
+                clearFirst.drawImage(firstFloorImg, 0, 0, firstFloorCanvas.width, firstFloorCanvas.height);
+
+                const clearSecond = secondFloorCanvas.getContext('2d'); //used to clear second floor on each run, makes sure that in the event of first-floor exclusive routing, no second floor remnants are left
+                clearSecond.clearRect(0, 0, secondFloorCanvas.width, secondFloorCanvas.height);
+                clearSecond.drawImage(secondFloorImg, 0, 0, secondFloorCanvas.width, secondFloorCanvas.height);
+                
                 const wing = document.getElementById('nearestWing').value.toUpperCase(); //stores user input from the select a wing dropdown
                 const room = document.getElementById('roomNumber').value.trim().toUpperCase(); //stores user input from the enter a room box
 
