@@ -13,13 +13,15 @@ const coordinates =
       'D_WING_FIRSTFLOOR': { x: 1040, y: 1076, floor: 1 },
       'E_WING_FIRSTFLOOR': { x: 450, y: 1092, floor: 1 },
       'F_WING_FIRSTFLOOR': { x: 1413, y: 1570, floor: 1 },
+      'G_WING': { x: 694, y: 1089, floor: 1 },
+      'K_WING_FIRSTFLOOR': { x: 241, y: 1082, floor: 1 },
       'M_WING': { x: 1491, y: 1542, floor: 1 },
       'J_WING': { x: 1122, y: 905, floor: 1 },
-      'B_WING_SECONDFLOOR': { x: 1564, y: 669, floor: 1 },
-      'D_WING_SECONDFLOOR': { x: 1550, y: 371, floor: 1 },
-      'E_WING_SECONDFLOOR': { x: 778, y: 386, floor: 1 },
-      'F_WING_SECONDFLOOR': { x: 1845, y: 977, floor: 1 },
-      'K_WING_SECONDFLOOR': { x: 399, y: 376, floor: 1 }
+      'B_WING_SECONDFLOOR': { x: 1564, y: 669, floor: 2 },
+      'D_WING_SECONDFLOOR': { x: 1550, y: 371, floor: 2 },
+      'E_WING_SECONDFLOOR': { x: 778, y: 386, floor: 2 },
+      'F_WING_SECONDFLOOR': { x: 1845, y: 977, floor: 2 },
+      'K_WING_SECONDFLOOR': { x: 399, y: 376, floor: 2 }
     },
     stairs:
     [
@@ -46,7 +48,6 @@ const roomCoordinates =
         'A160C': { x: 883, y: 1656, floor: 1 },
         'A160D': { x: 863, y: 1656, floor: 1 },
         'A160E': { x: 837, y: 1665, floor: 1 },
-        'A145': { x: 841, y: 1670, floor: 1 },
         'A160F': { x: 878, y: 1659, floor: 1 },
         'A160G': { x: 894, y: 1660, floor: 1 },
         'A143': { x: 861, y: 1745, floor: 1 },
@@ -59,7 +60,7 @@ const roomCoordinates =
         'A154': { x: 923, y: 1724, floor: 1 },
         'A150': { x: 922, y: 1691, floor: 1 },
         'A153': { x: 923, y: 1693, floor: 1 }
-      }
+      },
 
       B_wing_roomCoords:
       {
@@ -88,16 +89,11 @@ const roomCoordinates =
         'B129A': { x: 1108, y: 1095, floor: 1 },
         'B129B': { x: 1131, y: 1093, floor: 1 },
         'B129C': { x: 1152, y: 1097, floor: 1 }
-      }
+      },
 
       D_wing_roomCoords:
       {
       }
-    }
-};
-
-const roomCoordinates = {
-    'discoveryPark': {
     }
 };
 
