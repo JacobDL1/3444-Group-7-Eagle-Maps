@@ -553,22 +553,35 @@ function scaleImg(x, y, floor, canvas) //upscales or downsacles image to match d
 
 function getRoomCoords(building, roomNum) //checks if room exists and returns its coordiantes if it does
 {
-  const wing = roomNum[0].toUpperCase() + '_wing_roomCoords'; //stores name of wing as it will be stored in roomCoordinates
+  const wing = roomNum[0].toUpperCase(); //stores name of wing as it will be stored in roomCoordinates
   const room = roomCoordinates[building]; //stores data of rooms in specified building
 
-  if (!room[wing]) //wing does not exist
+  const firstFloor = wing + '_wingFirstFloor_roomCoords';
+  const secondFloor = wing + '_wingSecondFloor_roomCoords';
+  let wingData = null; //store true name
+
+  if (room[firstFloor] && room[firstFloor][roomNum.toUpperCase()]) //first floor check
+  {
+    wingData = room[firstFloor];
+  }
+  else if (room[secondFloor] && room[secondFloor][roomNum.toUpperCase()]) //second floor check
+  {
+    wingData = room[secondFloor];
+  }
+
+  if (!wingData) //wing does not exist
   {
     return null;
   }
 
-  if (!room[wing][roomNum.toUpperCase()]) //room does not exist
+  if (!wingData[roomNum.toUpperCase()]) //room does not exist
   {
     return null;
   }
 
-  if (room[wing][roomNum.toUpperCase()]) //room exists
+  if (wingData[roomNum.toUpperCase()]) //room exists
   {
-    return room[wing][roomNum.toUpperCase()];
+    return wingData[roomNum.toUpperCase()];
   }
 }
 
