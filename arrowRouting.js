@@ -222,6 +222,26 @@ const roomCoordinates =
         'E134': { x: 289, y: 1271, floor: 1 }
       },
 
+      H_wingFirstFloor_roomCoords:
+      {
+        'H101A': { x: 897, y: 677, floor: 1 },
+        'H101': { x: 898, y: 651, floor: 1 },
+        'H113': { x: 893, y: 608, floor: 1 },
+        'H115': { x: 894, y: 583, floor: 1 },
+        'H108': { x: 807, y: 632, floor: 1 },
+        'H105': { x: 826, y: 630, floor: 1 },
+        'H112': { x: 853, y: 627, floor: 1 },
+        'H120': { x: 893, y: 519, floor: 1 },
+        'H118': { x: 893, y: 520, floor: 1 },
+        'H121': { x: 894, y: 519, floor: 1 },
+        'H122': { x: 896, y: 462, floor: 1 },
+        'H124': { x: 897, y: 417, floor: 1 },
+        'H125': { x: 897, y: 418, floor: 1 },
+        'H131': { x: 901, y: 364, floor: 1 },
+        'H132': { x: 902, y: 366, floor: 1 },
+        'H130': { x: 901, y: 365, floor: 1 },
+      },
+
       K_wingFirstFloor_roomCoords:
       {
         'K100': { x: 268, y: 1102, floor: 1 },
