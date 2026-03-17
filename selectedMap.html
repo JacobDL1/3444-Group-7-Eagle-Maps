@@ -3,6 +3,7 @@
 
 <head>
     <title>Selected Map</title>
+    <script src="arrowRouting.js"></script>
 </head>
 
 <body>
@@ -65,35 +66,10 @@
             const secondFloorImg = document.getElementById(building + '_floor2_img');
             const secondFloorCanvas = document.getElementById(building + '_floor2_canvas');
 
-            // Temporary coordinate finder - remove after getting all coordinates
-            firstFloorCanvas.addEventListener('click', function(e)
-            {
-                const rect = firstFloorCanvas.getBoundingClientRect();
-                const x = Math.round(e.clientX - rect.left);
-                const y = Math.round(e.clientY - rect.top);
-                console.log(`Floor 1 - x:${x} y:${y}`);
-            });
-            
-            secondFloorCanvas.addEventListener('click', function(e)
-            {
-                const rect = secondFloorCanvas.getBoundingClientRect();
-                const x = Math.round(e.clientX - rect.left);
-                const y = Math.round(e.clientY - rect.top);
-                console.log(`Floor 2 - x:${x} y:${y}`);
-            });
-
             firstFloorImg.onload = function ()
             {
                 firstFloorCanvas.width = firstFloorImg.offsetWidth;
                 firstFloorCanvas.height = firstFloorImg.offsetHeight;
-
-                const arrow = firstFloorCanvas.getContext('2d');
-                arrow.strokeStyle = 'green';
-                arrow.lineWidth = 5;
-                arrow.beginPath();
-                arrow.moveTo(0, 0);
-                arrow.lineTo(200, 200);
-                arrow.stroke();
             };
 
             if (firstFloorImg.complete)
@@ -105,20 +81,199 @@
             {
                 secondFloorCanvas.width = secondFloorImg.offsetWidth;
                 secondFloorCanvas.height = secondFloorImg.offsetHeight;
-
-                const arrow = secondFloorCanvas.getContext('2d');
-                arrow.strokeStyle = 'green';
-                arrow.lineWidth = 5;
-                arrow.beginPath();
-                arrow.moveTo(0, 0);
-                arrow.lineTo(200, 200);
-                arrow.stroke();
             };
 
             if (secondFloorImg.complete)
             {
                 secondFloorImg.onload();
             }
+
+            document.getElementById('route').addEventListener('click', function()
+            {
+                const wing = document.getElementById('nearestWing').value.toUpperCase(); //stores user input from the select a wing dropdown
+                const room = document.getElementById('roomNumber').value.trim().toUpperCase(); //stores user input from the enter a room box
+
+                const roomCoords = getRoomCoords(building, room); //stores coordates of user-specified room
+
+                if (!roomCoords) //checks if room doesn't exist
+                {
+                    alert('Room ' + room + ' does not exist. Please try again.')
+                    return;
+                }
+
+                const wingCoords = coordinates[building].wings[wing]; //stores coordates of user-specified wing
+
+                if (!wingCoords) //checks if wing doesn't exist
+                {
+                    alert('Wing does not exist. Please try again.')
+                    return;
+                }
+
+                const startFloor = wingCoords.floor; //these two are to discern if route must cross floors
+                const endFloor = roomCoords.floor;
+
+                if (startFloor == endFloor) //Same-floor routing
+                {
+                    let canvas; //sets canvas to either first or second floor
+                    if (startFloor === 1)
+                    {
+                        canvas = firstFloorCanvas;
+                    }
+                    else
+                    {
+                        canvas = secondFloorCanvas;
+                    }
+                    
+                    let img; //sets img to either first or second floor
+                    if (startFloor === 1)
+                    {
+                        img = firstFloorImg;
+                    }
+                    else
+                    {
+                        img = secondFloorImg;
+                    }
+
+                    const startLocation = scaleImg(wingCoords.x, wingCoords.y, startFloor, canvas); //store coordinates on canvas of the wing the user is starting from
+                    const endLocation = scaleImg(roomCoords.x, roomCoords.y, endFloor, canvas); //store coordinates on canvas of the room the user is going to
+                    const grid = logicalGrid(canvas, img); //stores as mapped out walkability grid of the map
+                    const walkableRoute = path(grid, startLocation.x, startLocation.y, endLocation.x, endLocation.y); //finds and stores the best route from start to end
+
+                    const arrow = canvas.getContext('2d'); //will be used to draw path walkableRoute found
+
+                    arrow.clearRect(0, 0, canvas.width, canvas.height);
+                    arrow.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    if(!walkableRoute)
+                    {
+                        alert('No path found.');
+                        return;
+                    }
+
+                    drawPath(canvas, walkableRoute);
+                }
+                else //multi-floor routing
+                {
+                    const stairLocation = coordinates[building].stairs; //stores list of all stairs
+                    let closestStair = null; //will store the location of the closest stair case
+                    let nearestDist = Infinity; //
+
+                    for (let i = 0; i < stairLocation.length; i++) //iterates through stairs and finds the closest stair case
+                    {
+                        let stair1;
+                        if (startFloor === 1)
+                        {
+                            stair1 = stairLocation[i].floor1;
+                        }
+                        else
+                        {
+                            stair1 = stairLocation[i].floor2;
+                        }
+                        const dist = Math.abs(stair1.x - wingCoords.x) + Math.abs (stair1.y - wingCoords.y);
+
+                        if (dist < nearestDist) //find the closest staircase
+                        {
+                            nearestDist = dist; //replace nearestDist with new-found closer value
+                            closestStair = stairLocation[i]; //use closer staircase
+                        }
+                    }
+
+                    //Go from starting wing to staircase
+                    let beginCanvas; //store canvas either for first or second floor
+                    if (startFloor === 1)
+                    {
+                        beginCanvas = firstFloorCanvas;
+                    }
+                    else
+                    {
+                        beginCanvas = secondFloorCanvas;
+                    }
+
+                    let beginImg; //store img either for first or second floor
+                    if (startFloor === 1)
+                    {
+                        beginImg = firstFloorImg;
+                    }
+                    else
+                    {
+                        beginImg = secondFloorImg;
+                    }
+
+                    let staircase1; //store closest staircase
+                    if (startFloor === 1)
+                    {
+                        staircase1 = closestStair.floor1;
+                    }
+                    else
+                    {
+                        staircase1 = closestStair.floor2;
+                    }
+
+                    const scaleWing = scaleImg(wingCoords.x, wingCoords.y, startFloor, beginCanvas); //scales wing coordinates to user device for accurate mapping
+                    const scaleStair = scaleImg(staircase1.x, staircase1.y, startFloor, beginCanvas); //scales staircase coordinates to user device for accurate mapping
+                    const grid1 = logicalGrid(beginCanvas, beginImg); //stores walkability grid
+                    const walkableRoute1 = path(grid1, scaleWing.x, scaleWing.y, scaleStair.x, scaleStair.y); //finds best path from start location to staircase
+                    const arrow1 = beginCanvas.getContext('2d'); //will be used to draw path walkableRoute1 found
+
+                    arrow1.clearRect(0, 0, beginCanvas.width, beginCanvas.height);
+                    arrow1.drawImage(beginImg, 0, 0, beginCanvas.width, beginCanvas.height);
+
+                    if(walkableRoute1) //if walkableRoute1 found a path, draw it
+                    {
+                        drawPath(beginCanvas, walkableRoute1);
+                    }
+
+                    //New floor to room
+                    let endCanvas; //store canvas either for first or second floor
+                    if (endFloor === 1)
+                    {
+                        endCanvas = firstFloorCanvas;
+                    }
+                    else
+                    {
+                        endCanvas = secondFloorCanvas;
+                    }
+
+                    let endImg; //store img either for first or second floor
+                    if (endFloor === 1)
+                    {
+                        endImg = firstFloorImg;
+                    }
+                    else
+                    {
+                        endImg = secondFloorImg;
+                    }
+
+                    let staircase2; //store closest staircase
+                    if (endFloor === 1)
+                    {
+                        staircase2 = closestStair.floor1;
+                    }
+                    else
+                    {
+                        staircase2 = closestStair.floor2;
+                    }
+
+                    const scaleRoom = scaleImg(roomCoords.x, roomCoords.y, endFloor, endCanvas); //scales user designated room to user device
+                    const scaleStairEnd = scaleImg(staircase2.x, staircase2.y, endFloor, endCanvas); //scales staircase2 coordinates to user device
+                    const grid2 = logicalGrid(endCanvas, endImg); //stores walkability grid
+                    const walkableRoute2 = path(grid2, scaleStairEnd.x, scaleStairEnd.y, scaleRoom.x, scaleRoom.y); //finds best path from stair location to room
+                    const arrow2 = endCanvas.getContext('2d'); //will be used to draw path walkableRoute1 found
+
+                    arrow2.clearRect(0, 0, endCanvas.width, endCanvas.height);
+                    arrow2.drawImage(endImg, 0, 0, endCanvas.width, endCanvas.height);
+
+                    if(walkableRoute2) //if walkableRoute1 found a path, draw it
+                    {
+                        drawPath(endCanvas, walkableRoute2);
+                    }
+
+                    if (!walkableRoute1 && !walkableRoute2)
+                    {
+                        alert('No path');
+                    }
+                }
+            });
         }
     </script>
 </body>
