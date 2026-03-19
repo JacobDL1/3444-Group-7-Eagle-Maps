@@ -25,13 +25,17 @@
 <script src="database.js"></script>
 <script>
   
-document.getElementById("signupForm")
-  .addEventListener("submit", async function(e) {
+document.getElementById("signupForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-    const result =
-      await UserDatabase.registerUser(email, password);
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const msgEl = document.getElementById("message");
+    const result =await UserDatabase.registerUser(email, password);
+
     msgEl.textContent = result.message;
     msgEl.className = result.success ? "success" : "error";
+  
     if (result.success) {
       setTimeout(() => {
         window.location.href = "login.html";
