@@ -59,7 +59,7 @@
 
 <h1>Login</h1>
 
-<form action="mapSelection.html" method="GET">
+<form id="loginForm">
 
   <label for="email">Email:</label><br>
   <input type="email" id="email" name="email" required><br><br>
@@ -67,6 +67,7 @@
   <label for="password">Password:</label><br>
   <input type="password" id="password" name="password" required><br><br>
 
+  <p id="message"></p>
   <button type="submit">Login</button>
 
 </form>
@@ -74,17 +75,22 @@
 <p>Don't have an account?</p>
 <a href="sign-up.html">Go to Sign Up</a>
 
+<script src="database.js"></script>
 <script>
-
-document.querySelector("form").addEventListener("submit", function(e){
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  if(email === "" || password === ""){
-    alert("Please fill in all fields");
+  
+document.getElementById("loginForm")
+  .addEventListener("submit", async function(e) {
     e.preventDefault();
-  }
-});
+    const result =
+      await UserDatabase.loginUser(email, password);
+    msgEl.textContent = result.message;
+    msgEl.className = result.success ? "success" : "error";
+    if (result.success) {
+      setTimeout(() => {
+        window.location.href = "mapSelection.html";
+      }, 1000);
+    }
+  });
   
 </script>
   
