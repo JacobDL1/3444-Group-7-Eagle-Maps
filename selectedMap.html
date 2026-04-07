@@ -9,8 +9,6 @@
 <body>
     <h1 id="building">Selected Map</h1>
     
-    <a href="index.html">Logout</a>
-
     <label for="nearestWing">Where I am:</label>
 
     <select id="nearestWing" name="nearestWing" required>
@@ -34,7 +32,9 @@
     <label for="roomNumber">Where I Want to Go:</label>
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
 
-    <button id="route">Find Route</button>
+    <button id="route">Find Route</button><br>
+
+    <a href="index.html">Logout</a>
     
     <div id="discoveryPark_map" style="display:none">
         <!-- Relative for grouped div and absolute on the canvas stacks them, allowing the arrow to be drawn over the map -->
