@@ -33,6 +33,7 @@
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
 
     <button id="route">Find Route</button><br>
+    <button id="endNav">End Navigation</button>
 
     <a href="index.html">Logout</a>
     
@@ -289,6 +290,15 @@
                         alert('No path');
                     }
                 }
+            });
+            document.getElementById('endNav').addEventListener('click', function() {
+            // Clear both canvases
+            const firstCtx = firstFloorCanvas.getContext('2d');
+            const secondCtx = secondFloorCanvas.getContext('2d');
+            firstCtx.clearRect(0, 0, firstFloorCanvas.width, firstFloorCanvas.height);
+            firstCtx.drawImage(firstFloorImg, 0, 0, firstFloorCanvas.width, firstFloorCanvas.height);
+            secondCtx.clearRect(0, 0, secondFloorCanvas.width, secondFloorCanvas.height);
+            secondCtx.drawImage(secondFloorImg, 0, 0, secondFloorCanvas.width, secondFloorCanvas.height);
             });
         }
     </script>
