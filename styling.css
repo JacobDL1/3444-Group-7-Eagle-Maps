@@ -5,6 +5,11 @@ body {
   padding: 100px 0;
 }
 
+div p {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
 h1 {
   color: #006633;
 }
