@@ -6,7 +6,7 @@ body {
 }
 
 div p {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 5px;
 }
 
@@ -24,6 +24,7 @@ a.button {
   cursor: pointer;
   width: 30%;
   text-decoration: none;
+  margin-bottom: 0;
 }
 
 a.button:hover {
