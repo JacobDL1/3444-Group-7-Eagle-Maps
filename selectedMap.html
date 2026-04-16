@@ -32,6 +32,8 @@
     <label for="roomNumber">Where I Want to Go:</label>
     <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
 
+    <label><input type="checkbox" id="accessibility">Use elevators</label>
+
     <button id="route">Find Route</button><br>
     <button id="endNav">End Navigation</button>
 
@@ -110,6 +112,8 @@
                 const wing = document.getElementById('nearestWing').value.toUpperCase(); //stores user input from the select a wing dropdown
                 const room = document.getElementById('roomNumber').value.trim().toUpperCase(); //stores user input from the enter a room box
 
+                const elevator = document.getElementById('accessibility').checked;
+
                 const roomCoords = getRoomCoords(building, room); //stores coordates of user-specified room
 
                 if (!roomCoords) //checks if room doesn't exist
@@ -171,27 +175,27 @@
                 }
                 else //multi-floor routing
                 {
-                    const stairLocation = coordinates[building].stairs; //stores list of all stairs
-                    let closestStair = null; //will store the location of the closest stair case
+                    const transitLocation = elevator ? coordinates[building].elevators : coordinates[building].stairs; //stores list of all stairs or elevators depending on if checkbox was clicked
+                    let closestTransit = null; //will store the location of the closest stair case
                     let nearestDist = Infinity; //
 
-                    for (let i = 0; i < stairLocation.length; i++) //iterates through stairs and finds the closest stair case
+                    for (let i = 0; i < transitLocation.length; i++) //iterates through stairs and finds the closest stair case
                     {
-                        let stair1;
+                        let transit;
                         if (startFloor === 1)
                         {
-                            stair1 = stairLocation[i].floor1;
+                            transit = transitLocation[i].floor1;
                         }
                         else
                         {
-                            stair1 = stairLocation[i].floor2;
+                            transit = transitLocation[i].floor2;
                         }
-                        const dist = Math.abs(stair1.x - wingCoords.x) + Math.abs (stair1.y - wingCoords.y);
+                        const dist = Math.abs(transit.x - wingCoords.x) + Math.abs (transit.y - wingCoords.y);
 
                         if (dist < nearestDist) //find the closest staircase
                         {
                             nearestDist = dist; //replace nearestDist with new-found closer value
-                            closestStair = stairLocation[i]; //use closer staircase
+                            closestTransit = transitLocation[i]; //use closer staircase
                         }
                     }
 
@@ -216,18 +220,18 @@
                         beginImg = secondFloorImg;
                     }
 
-                    let staircase1; //store closest staircase
+                    let transit1; //store closest staircase
                     if (startFloor === 1)
                     {
-                        staircase1 = closestStair.floor1;
+                        transit1 = closestTransit.floor1;
                     }
                     else
                     {
-                        staircase1 = closestStair.floor2;
+                        transit1 = closestTransit.floor2;
                     }
 
                     const scaleWing = scaleImg(wingCoords.x, wingCoords.y, startFloor, beginCanvas); //scales wing coordinates to user device for accurate mapping
-                    const scaleStair = scaleImg(staircase1.x, staircase1.y, startFloor, beginCanvas); //scales staircase coordinates to user device for accurate mapping
+                    const scaleStair = scaleImg(transit1.x, transit1.y, startFloor, beginCanvas); //scales staircase coordinates to user device for accurate mapping
                     const grid1 = logicalGrid(beginCanvas, beginImg); //stores walkability grid
                     const walkableRoute1 = path(grid1, scaleWing.x, scaleWing.y, scaleStair.x, scaleStair.y); //finds best path from start location to staircase
                     const arrow1 = beginCanvas.getContext('2d'); //will be used to draw path walkableRoute1 found
@@ -261,18 +265,18 @@
                         endImg = secondFloorImg;
                     }
 
-                    let staircase2; //store closest staircase
+                    let transit2; //store closest staircase
                     if (endFloor === 1)
                     {
-                        staircase2 = closestStair.floor1;
+                        transit2 = closestTransit.floor1;
                     }
                     else
                     {
-                        staircase2 = closestStair.floor2;
+                        transit2 = closestTransit.floor2;
                     }
 
                     const scaleRoom = scaleImg(roomCoords.x, roomCoords.y, endFloor, endCanvas); //scales user designated room to user device
-                    const scaleStairEnd = scaleImg(staircase2.x, staircase2.y, endFloor, endCanvas); //scales staircase2 coordinates to user device
+                    const scaleStairEnd = scaleImg(transit2.x, transit2.y, endFloor, endCanvas); //scales transit2 coordinates to user device
                     const grid2 = logicalGrid(endCanvas, endImg); //stores walkability grid
                     const walkableRoute2 = path(grid2, scaleStairEnd.x, scaleStairEnd.y, scaleRoom.x, scaleRoom.y); //finds best path from stair location to room
                     const arrow2 = endCanvas.getContext('2d'); //will be used to draw path walkableRoute1 found
