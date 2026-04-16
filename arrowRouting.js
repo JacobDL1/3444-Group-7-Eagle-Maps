@@ -1102,7 +1102,7 @@ function path(grid, x1, y1, x2, y2) //finds path from start postion (x1, y1) to 
 }
 
 
-function drawPath(canvas, path) //draws path on the canvas
+function drawPath(canvas, path) //draws path on the canvas with endpoints at the beginning and end of the path
 {
   const arrow = canvas.getContext('2d'); //allows program to draw on the canvas
 
@@ -1116,4 +1116,26 @@ function drawPath(canvas, path) //draws path on the canvas
     arrow.lineTo(path[i].x, path[i].y);
   }
   arrow.stroke(); //draws the arrow based on the lineTo commands from the for loop
+
+  const endpoints = canvas.getContext('2d'); //used to draw endpoints
+  
+  if (!path || path.length === 0) //ends function if there is no path or the path is empty
+  {
+    return;
+  }
+
+  const start = path[0];
+  const end = path[path.length - 1];
+
+  //draws green dot at start of path for a clear start point
+  endpoints.beginPath();
+  endpoints.arc(start.x, start.y, 6, 0, 2 * Math.PI);
+  endpoints.fillStyle = 'green';
+  endpoints.fill();
+
+  //draws green dot at end of path for a clear end point
+  endpoints.beginPath();
+  endpoints.arc(end.x, end.y, 6, 0, 2 * Math.PI);
+  endpoints.fillStyle = 'green';
+  endpoints.fill();
 }
