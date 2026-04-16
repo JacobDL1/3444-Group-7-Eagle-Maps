@@ -30,7 +30,14 @@ const coordinates =
       { floor1 : {x: 834, y: 1063}, floor2: {x: 1100, y: 353} },
       { floor1 : {x: 209, y: 1085}, floor2: {x: 359, y: 364} },
       { floor1 : {x: 1111, y: 1549}, floor2: {x: 1372, y: 940} },
-      { floor1 : { x: 1692, y: 1553}, floor2: {x: 2145, y: 943} },
+      { floor1 : { x: 1692, y: 1553}, floor2: {x: 2145, y: 943} }
+    ],
+    elevators:
+    [
+      { floor1 : {x: 1203, y: 1055}, floor2: {x: 1565, y: 344} },
+      { floor1 : {x: 268, y: 1054}, floor2: {x: 435, y: 344} },
+      { floor1 : {x: 1010, y: 1542}, floor2: {x: 1328, y: 943} },
+      { floor1 : {x: 1630, y: 1539}, floor2: {x: 2067, y: 931} }
     ]
   }
 };
