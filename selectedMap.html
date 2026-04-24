@@ -11,7 +11,7 @@
 <body>
     <h1 id="building">Selected Map</h1>
     
-    <label for="nearestWing">Where I am:</label>
+    <label for="nearestWing">Where I am:</label> <br>
     <!-- All starting location options -->
     <select id="nearestWing" name="nearestWing" required>
         <option value="A_wing">A Wing</option>
@@ -29,18 +29,18 @@
         <option value="E_wing_secondFloor">E Wing - Second Floor</option>
         <option value="F_wing_secondFloor">F Wing - Second Floor</option>
         <option value="K_wing_secondFloor">K Wing - Second Floor</option>
-    </select><br>
+    </select> <br><br>
 
     <!-- Text-entry box for room number -->
     <label for="roomNumber">Where I Want to Go:</label>
     <div style="width: 25%; margin: auto">
         <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
-    </div>
+    </div> <br><br>
 
-    <label><input type="checkbox" id="accessibility">Use elevators</label>
+    <label><input type="checkbox" id="accessibility">Use elevators</label> <br><br>
 
     <div style="width: 50%; margin: auto">
-        <a class='button' id="route">Find Route</a>
+        <a class='button' id="route">Find Route</a><br>
         <a class='button' id="endNav">End Navigation</a>
     </div>
 
