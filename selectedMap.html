@@ -9,7 +9,9 @@
 </head>
 
 <body>
+<main> // main content of page
     <h1 id="building">Selected Map</h1>
+    <section> <!-- user input section -->
     
     <label for="nearestWing">Where I am:</label>
     <!-- All starting location options -->
@@ -46,7 +48,9 @@
     </div> <br>
 
     <a href="index.html" aria-label="Log out and return to home page">Logout</a> // logout link
+        </section> <!-- end user input section -->
     
+    <section> <!-- map display section -->
     <div id="discoveryPark_map" style="display:none">
         <!-- Relative for grouped div and absolute on the canvas stacks them, allowing the arrow to be drawn over the map -->
         <h1>First Floor Map</h1>
@@ -60,6 +64,7 @@
             <canvas id="discoveryPark_floor2_canvas" style="position:absolute; top:0; left:0;"></canvas>
         </div>
     </div>
+    </section> <!-- end map section -->
     
     <!-- Script for dynamically responding to user-selected map -->
     <script>
@@ -316,6 +321,7 @@
             });
         }
     </script>
+    
+</main> // end main content
 </body>
-
 </html>
