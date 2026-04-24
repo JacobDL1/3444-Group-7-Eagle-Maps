@@ -33,12 +33,16 @@
 
     <!-- Text-entry box for room number -->
     <label for="roomNumber">Where I Want to Go:</label>
-    <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
+    <div style="width: 50%; margin: auto">
+        <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
+    </div>
 
     <label><input type="checkbox" id="accessibility">Use elevators</label>
 
-    <button id="route">Find Route</button><br>
-    <button id="endNav">End Navigation</button>
+    <div style="width: 50%; margin: auto">
+        <a class='button' id="route">Find Route</a>
+        <a class='button' id="endNav">End Navigation</a>
+    </div>
 
     <a href="index.html">Logout</a>
     
