@@ -86,9 +86,11 @@ label {
 }
 
 .success {
-  color: green;
+  color: #006600; // darker green (better contrast)
+  font-weight: bold; // adds clarity
 }
 
 .error {
-  color: red;
+  color: #cc0000; // darker red
+  font-weight: bold;
 }
