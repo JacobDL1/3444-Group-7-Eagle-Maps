@@ -41,7 +41,7 @@ form {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-input {
+input[type="text] {
   width: 90%;
   padding: 8px;
   margin: 8px 0;
@@ -71,7 +71,7 @@ a {
 
 label {
   display: block;
-  text-align: left;
+  text-align: center;
   font-size: 0.9em;
   margin-top: 8px;
   color: #006633;
