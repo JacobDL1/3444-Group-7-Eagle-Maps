@@ -1,5 +1,5 @@
 /* 
-    Database to store user emails and passwords.
+    Database to store user emails and passwords
 */
 
 const UserDatabase = (() => {
