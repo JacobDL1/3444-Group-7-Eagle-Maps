@@ -37,25 +37,26 @@
         <input type="text" id="roomNumber" name="roomNumber" pattern="[A-Za-z][A-Za-z0-9]+"placeholder="Example: F245" required>
     </div>
 
-    <label><input type="checkbox" id="accessibility">Use elevators</label> <br>
-
+    <input type="checkbox" id="accessibility">
+    <label for="accessibility">Use elevators</label> // label connected to checkbox
+    
     <div style="width: 50%; margin: auto">
-        <a class='button' id="route">Find Route</a><br><br>
-        <a class='button' id="endNav">End Navigation</a>
+        <a class='button' id="route" role="button" aria-label="Find route on map">Find Route</a> // button for finding route
+        <a class='button' id="endNav" role="button" aria-label="End navigation and clear map">End Navigation</a> // button to stop navigation
     </div> <br>
 
-    <a href="index.html">Logout</a>
+    <a href="index.html" aria-label="Log out and return to home page">Logout</a> // logout link
     
     <div id="discoveryPark_map" style="display:none">
         <!-- Relative for grouped div and absolute on the canvas stacks them, allowing the arrow to be drawn over the map -->
         <h1>First Floor Map</h1>
         <div style="position:relative; display:inline-block">
-            <img id="discoveryPark_floor1_img" src="FirstFloorDP1.png" alt="Discovery Park First Floor" style="max-width:100%;">
+            <img id="discoveryPark_floor1_img" src="FirstFloorDP1.png" alt="Map of Discovery Park first floor showing layout" style="max-width:100%;"> // first floor map image
             <canvas id="discoveryPark_floor1_canvas" style="position:absolute; top:0; left:0;"></canvas>
         </div>
         <h1>Second Floor Map</h1>
         <div style="position:relative; display:inline-block">
-            <img id="discoveryPark_floor2_img" src="SecondFloorDP1.png" alt="Discovery Park Second Floor" style="max-width:100%;">
+            <img id="discoveryPark_floor2_img" src="SecondFloorDP1.png" alt="Map of Discovery Park second floor showing layout" style="max-width:100%;"> // second floor map image
             <canvas id="discoveryPark_floor2_canvas" style="position:absolute; top:0; left:0;"></canvas>
         </div>
     </div>
