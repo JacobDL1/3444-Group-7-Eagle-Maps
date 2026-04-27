@@ -79,6 +79,10 @@ label {
   color: #006633;
 }
 
+#accessibility + label {
+  display: inline;
+}
+
 #message {
   font-size: 0.9em;
   min-height: 1em;
